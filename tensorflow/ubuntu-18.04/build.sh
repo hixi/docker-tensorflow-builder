@@ -5,7 +5,7 @@ if [ "$CUDA_VERSION" != "9.2" ]; then
     echo "Error: Currently, only CUDA_VERSION 9.2 is supported."
     exit -1
 fi
-if [ "CUDNN_VERSION" != "7.1" ]; then
+if [ "$CUDNN_VERSION" != "7.1" ]; then
     echo "Error: Currently, only CUDNN_VERSION 7.1 is supported."
     exit -1
 fi
