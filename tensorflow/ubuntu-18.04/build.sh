@@ -100,10 +100,11 @@ fi
 # Project name can only be set for TF > 1.8
 if [ "$USE_GPU" -eq "1" ]; then
     PROJECT_NAME="tensorflow_gpu_cuda_${TF_CUDA_VERSION}_cudnn_${TF_CUDNN_VERSION}"
-    bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels --project_name $PROJECT_NAME
 else
-    bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels
+    PROJECT_NAME="tensorflow_cpu_only"
 fi
+
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels --project_name $PROJECT_NAME
 
 # Fix wheel folder permissions
 chmod -R 777 /wheels/
